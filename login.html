@@ -1,11 +1,184 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <title>Hotel Monopolio - Login</title>
+
+    <link rel="stylesheet" href="css/style2.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            /* Fundo cinza bem claro e limpo (clean) */
+            background-color: #f0f4f8; 
+            margin: 0;
+        }
+
+        .titulo_principal {
+            /* Azul escuro futurista com borda em Ciano Neon */
+            color: #0f172a;
+            background-color: white;
+            border: 3px solid #00d2ff;
+            border-radius: 50px;
+            width: 300px;
+            margin: 30px auto;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .meio {
+            width: 450px;
+            margin: 50px auto;
+            padding: 25px;
+            background-color: white;
+            /* Borda suave e sombra azulada brilhante (efeito "glow" futurista) */
+            border: 1px solid #e2e8f0;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0, 210, 255, 0.15);
+        }
+
+        .titulo_secundario {
+            color: #1e293b;
+            margin-bottom: 30px;
+        }
+
+        .form {
+            text-align: left;
+        }
+
+        .label {
+            color: #475569;
+            font-weight: bold;
+        }
+
+        .input {
+            width: 95%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            /* Borda cinza clara e fundo levemente azulado */
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            background-color: #f8fafc;
+            box-sizing: border-box;
+        }
+
+        .input:focus {
+            /* Foco com o ciano tecnológico */
+            border: 2px solid #00d2ff;
+            outline: none;
+        }
+
+        .btn-enviar {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 25px;
+            /* Botão principal em azul escuro tecnológico */
+            background-color: #0f172a;
+            color: #00d2ff; /* Texto em ciano para contrastar */
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn-enviar:hover {
+            /* Inverte as cores ao passar o mouse */
+            background-color: #00d2ff;
+            color: #0f172a;
+        }
+
+        .cadastro {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .btn-cadastro {
+            padding: 10px 20px;
+            /* Botão de cadastro discreto e clean */
+            border: 2px solid #0f172a;
+            border-radius: 25px;
+            background-color: transparent;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn-cadastro:hover {
+            background-color: #0f172a;
+        }
+
+        .btn-cadastro a {
+            color: #0f172a;
+            text-decoration: none;
+        }
+
+        .btn-cadastro a:hover {
+            /* Texto vira ciano quando passa o mouse no botão */
+            color: #00d2ff;
+        }
+    </style>
 </head>
+
 <body>
-    
+
+    <h1 class="titulo_principal">
+        Hotel Monopolio
+    </h1>
+
+    <div class="meio">
+
+        <h2 class="titulo_secundario">
+            Acesso do Cliente
+        </h2>
+
+        <form class="form" action="autenticar.php" method="post">
+
+            <label class="label" for="email">
+                Email
+            </label>
+
+            <input class="input"
+                   type="email"
+                   id="email"
+                   name="email"
+                   placeholder="seuemail@email.com.br"
+                   required>
+
+            <label class="label" for="senha">
+                Senha
+            </label>
+
+            <input class="input"
+                   type="password"
+                   id="senha"
+                   name="senha"
+                   placeholder="Sua senha"
+                   required>
+
+            <button class="btn-enviar" type="submit">
+                ENTRAR
+            </button>
+
+        </form>
+
+        <div class="cadastro">
+
+            <button class="btn-cadastro">
+                <a href="http://localhost/hotel/cadastro_cliente.html">
+                    Ainda não é cadastrado?
+                    <br>
+                    Clique aqui
+                </a>
+            </button>
+
+        </div>
+
+    </div>
+
 </body>
+
 </html>

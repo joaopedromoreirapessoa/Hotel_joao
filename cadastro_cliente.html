@@ -1,32 +1,123 @@
-<!DOCTYPE html>
-<html lang="en">
+<<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Clientes!</title>
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            /* Mesmo fundo cinza claro e limpo */
+            background-color: #f0f4f8; 
+            margin: 0;
+        }
+
+        .titulo_principal {
+            /* Título no mesmo padrão de caixa arredondada com borda ciano */
+            color: #0f172a;
+            background-color: white;
+            border: 3px solid #00d2ff;
+            border-radius: 50px;
+            width: 350px;
+            margin: 30px auto;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .meio {
+            /* Caixa centralizada com efeito de sombra neon suave */
+            width: 450px;
+            margin: 40px auto;
+            padding: 25px;
+            background-color: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0, 210, 255, 0.15);
+        }
+
+        .titulo_secundario {
+            color: #1e293b;
+            margin-bottom: 30px;
+        }
+
+        .form {
+            text-align: left;
+        }
+
+        .label {
+            color: #475569;
+            font-weight: bold;
+            display: block; /* Garante que o label fique acima do input */
+            margin-top: 15px;
+        }
+
+        .input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            background-color: #f8fafc;
+            box-sizing: border-box;
+        }
+
+        .input:focus {
+            border: 2px solid #00d2ff;
+            outline: none;
+        }
+
+        .btn-enviar {
+            width: 100%;
+            padding: 12px;
+            margin-top: 30px;
+            border: none;
+            border-radius: 25px;
+            background-color: #0f172a;
+            color: #00d2ff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn-enviar:hover {
+            background-color: #00d2ff;
+            color: #0f172a;
+        }
+    </style>
 </head>
 <body>
-    <h1>RESERVAS DO HOTEL/h1>
-    <h2>Cadastro de Clientes</h2>
-    <form action="login.html" method="post">
-        <label for="nome">Nome Completo:</label>
-        <input type="text" name="nome" id="nome">
-        <br><br>
 
-        <label for="email">E-mail:</label>
-        <input type="email" name="email" id="email">
-        <br><br>
+    <!-- Título principal com a nova classe -->
+    <h1 class="titulo_principal">RESERVAS DO HOTEL</h1>
 
-        <label for="telefone">Telefone:</label>
-        <input type="number" name="telefone" id="telefone">
-        <br><br>
+    <!-- Caixa container idêntica à tela de login -->
+    <div class="meio">
 
-        <label for="senha">Senha:</label>
-        <input type="password" name="senha" id="senha">
-        <br><br>
+        <h2 class="titulo_secundario">Cadastro de Clientes</h2>
 
-        <button>ENVIAR CADASTRO</button>
-    </form>
+        <!-- Formulário organizado com as mesmas classes do outro código -->
+        <form class="form" action="login.html" method="post">
+            
+            <label class="label" for="nome">Nome Completo:</label>
+            <input class="input" type="text" name="nome" id="nome" placeholder="Digite seu nome completo" required>
+
+            <label class="label" for="email">E-mail:</label>
+            <input class="input" type="email" name="email" id="email" placeholder="seuemail@email.com" required>
+
+            <label class="label" for="telefone">Telefone:</label>
+            <!-- Dica: usar "tel" em vez de "number" ajuda na validação e no teclado do celular -->
+            <input class="input" type="tel" name="telefone" id="telefone" placeholder="(00) 00000-0000" required>
+
+            <label class="label" for="senha">Senha:</label>
+            <input class="input" type="password" name="senha" id="senha" placeholder="Crie uma senha forte" required>
+
+            <button class="btn-enviar" type="submit">ENVIAR CADASTRO</button>
+            
+        </form>
+
+    </div>
+
 </body>
 </html>
