@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel</title>
+    <link rel="stylesheet" href="estilo.css/style4.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+        }
+        h1 {
+            color: #0f172a;
+            background-color: white;
+            border: 3px solid #00d2ff;
+            border-radius: 50px;
+            width: 450px;
+            margin: 50px auto 40px;
+            padding: 10px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        form {
+            width: 450px;
+            margin: 0 auto;
+            padding: 25px;
+            background-color: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0, 210, 255, 0.15);
+            box-sizing: border-box;
+        }
+
+        h4 {
+            color: #475569;
+            margin: 20px 0 5px;
+            text-align: left;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            background-color: #f8fafc;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            border: 2px solid #00d2ff;
+            outline: none;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            background-color: #f8fafc;
+            box-sizing: border-box;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        select:focus {
+            border: 2px solid #00d2ff;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 30px;
+            border: none;
+            border-radius: 25px;
+            background-color: #0f172a;
+            color: #00d2ff;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #00d2ff;
+            color: #0f172a;
+            transform: scale(1.02);
+        }
+
+        a {
+            display: block;
+            width: 450px;
+            margin: 25px auto;
+            color: #0f172a !important;
+            text-align: center;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #00a8cc !important;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="border: 3px solid blue;width:450px;margin: auto;border-radius: 60px;">Cadastro do hotel</h1>
+    <br>
+    <br>
+    <br>
+
+    <form action="salvar_hotel.php" method="post">
+
+        <h4>
+            <label for="texto">DIGITE O NOME DO HOTEL 🏨:</label><br>
+            <input type="text" name="texto" id="texto" placeholder="Nome do hotel" required>
+        </h4>
+
+        <h4>
+            <label for="cidade">CIDADE 🌃:</label><br>
+            <input type="text" name="cidade" id="cidade" placeholder="Cidade do hotel escolhido" required>
+        </h4>
+
+        <h4>Estrelas 🌟:</h4>
+
+        <select name="avaliacao" id="avaliacao">
+            <option value="">Classificação em estrelas</option>
+            <option value="1">⭐ </option>
+            <option value="2">⭐⭐ </option>
+            <option value="3">⭐⭐⭐ </option>
+            <option value="4">⭐⭐⭐⭐ </option>
+            <option value="5">⭐⭐⭐⭐⭐ </option>
+        </select>
+
+        <h4>
+            <label for="cidade">email 🌃:</label><br>
+            <input type="email" name="email" id="email" placeholder="digite seu email" required>
+        </h4>
+
+        <h4>
+            <label for="cidade">senha 🌃:</label><br>
+            <input type="password" name="senha" id="senha" placeholder="diite sua senha" required>
+        </h4>
+
+        <br><br>
+
+        <button type="submit">Salvar Hotel</button>
+        <br>
+    </form>
+
+    <a href="inde.html" style="color: red;">Clique aqui para ir para a tela de cadastro</a>
+
+</body>
+
+</html>
