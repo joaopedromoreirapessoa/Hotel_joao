@@ -1,48 +1,57 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel</title>
-    <link rel="stylesheet" href="estilo.css/style4.css">
-
+    <title>Cadastro de Hotel - Hotel Monopolio</title>
+    <link rel="stylesheet" href="css/estilo.css">
     <style>
+
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f4f8;
             margin: 0;
         }
-        h1 {
+
+        .titulo_principal {
             color: #0f172a;
             background-color: white;
             border: 3px solid #00d2ff;
             border-radius: 50px;
-            width: 450px;
-            margin: 50px auto 40px;
+            width: 350px;
+            margin: 30px auto;
             padding: 10px;
             text-align: center;
-            box-sizing: border-box;
         }
-        form {
+
+        .meio {
             width: 450px;
-            margin: 0 auto;
+            margin: 40px auto;
             padding: 25px;
             background-color: white;
             border: 1px solid #e2e8f0;
             border-radius: 15px;
             text-align: center;
             box-shadow: 0 8px 30px rgba(0, 210, 255, 0.15);
-            box-sizing: border-box;
         }
 
-        h4 {
-            color: #475569;
-            margin: 20px 0 5px;
+        .titulo_secundario {
+            color: #1e293b;
+            margin-bottom: 30px;
+        }
+
+        .form {
             text-align: left;
         }
 
-        input {
+        .label {
+            color: #475569;
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+        }
+
+        .input {
             width: 100%;
             padding: 10px;
             margin-top: 5px;
@@ -52,29 +61,12 @@
             box-sizing: border-box;
         }
 
-        input:focus {
+        .input:focus {
             border: 2px solid #00d2ff;
             outline: none;
         }
 
-        select {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #cbd5e1;
-            border-radius: 8px;
-            background-color: #f8fafc;
-            box-sizing: border-box;
-            text-align: center;
-            font-size: 16px;
-        }
-
-        select:focus {
-            border: 2px solid #00d2ff;
-            outline: none;
-        }
-
-        button {
+        .btn-enviar {
             width: 100%;
             padding: 12px;
             margin-top: 30px;
@@ -84,78 +76,44 @@
             color: #00d2ff;
             font-weight: bold;
             cursor: pointer;
-            transition: all 0.3s ease;
         }
 
-        button:hover {
+        .btn-enviar:hover {
             background-color: #00d2ff;
             color: #0f172a;
-            transform: scale(1.02);
         }
 
-        a {
-            display: block;
-            width: 450px;
-            margin: 25px auto;
-            color: #0f172a !important;
+        .links {
+            margin-top: 20px;
             text-align: center;
-            font-weight: bold;
-            text-decoration: none;
         }
 
-        a:hover {
-            color: #00a8cc !important;
-        }
     </style>
 </head>
-
 <body>
-    <h1 style="border: 3px solid blue;width:450px;margin: auto;border-radius: 60px;">Cadastro do hotel</h1>
-    <br>
-    <br>
-    <br>
+    <h1 class="titulo_principal" style="color: #00a8cc; text-align: center;">HOTEL MONOPOLIO</h1>
 
-    <form action="salvar_hotel.php" method="post">
+    <div class="meio">
+        <h2 class="titulo_secundario">Cadastro de Hotel</h2>
+        <form class="form" action="salvar_hotel.php" method="POST">
+            <label class="label" for="nome">Nome do Hotel:</label>
+            <input class="input" type="text" name="nome" id="nome" placeholder="Ex: Hotel Monopolio" required>
 
-        <h4>
-            <label for="texto">DIGITE O NOME DO HOTEL 🏨:</label><br>
-            <input type="text" name="texto" id="texto" placeholder="Nome do hotel" required>
-        </h4>
+            <label class="label" for="cidade">Cidade:</label>
+            <input class="input" type="text" name="cidade" id="cidade" placeholder="Ex: Belo Horizonte" required>
 
-        <h4>
-            <label for="cidade">CIDADE 🌃:</label><br>
-            <input type="text" name="cidade" id="cidade" placeholder="Cidade do hotel escolhido" required>
-        </h4>
+            <label class="label" for="email">E-mail de Acesso:</label>
+            <input class="input" type="email" name="email" id="email" placeholder="hotel@email.com" required>
 
-        <h4>Estrelas 🌟:</h4>
+            <label class="label" for="senha">Senha:</label>
+            <input class="input" type="password" name="senha" id="senha" placeholder="Digite a senha" required>
 
-        <select name="avaliacao" id="avaliacao">
-            <option value="">Classificação em estrelas</option>
-            <option value="1">⭐ </option>
-            <option value="2">⭐⭐ </option>
-            <option value="3">⭐⭐⭐ </option>
-            <option value="4">⭐⭐⭐⭐ </option>
-            <option value="5">⭐⭐⭐⭐⭐ </option>
-        </select>
+            <label class="label" for="estrelas">Classificação (Estrelas):</label>
+            <input class="input" type="number" name="estrelas" id="estrelas" min="1" max="5" value="3" required>
 
-        <h4>
-            <label for="cidade">email 🌃:</label><br>
-            <input type="email" name="email" id="email" placeholder="digite seu email" required>
-        </h4>
-
-        <h4>
-            <label for="cidade">senha 🌃:</label><br>
-            <input type="password" name="senha" id="senha" placeholder="diite sua senha" required>
-        </h4>
-
-        <br><br>
-
-        <button type="submit">Salvar Hotel</button>
-        <br>
-    </form>
-
-    <a href="inde.html" style="color: red;">Clique aqui para ir para a tela de cadastro</a>
-
+            <button class="btn-enviar" type="submit">CADASTRAR HOTEL</button>
+        </form>
+        <div class="links"><a href="login_hotel.html">Voltar para o login do hotel</a></div>
+    </div>
 </body>
-
 </html>

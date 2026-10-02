@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Hotel Monopolio</title>
+    <title>Cadastro de Quartos - Hotel Monopolio</title>
     <link rel="stylesheet" href="css/estilo.css">
     <style>
 
@@ -94,17 +94,27 @@
     <h1 class="titulo_principal" style="color: #00a8cc; text-align: center;">HOTEL MONOPOLIO</h1>
 
     <div class="meio">
-        <h2 class="titulo_secundario">Login do Cliente</h2>
-        <form class="form" action="autenticar.php" method="POST">
-            <label class="label" for="email">E-mail:</label>
-            <input class="input" type="email" name="email" id="email" placeholder="Digite seu e-mail" required>
+        <h2 class="titulo_secundario">Cadastro de Quartos</h2>
+        <form class="form" action="salvar_quarto.php" method="POST">
+            <label class="label" for="hotel_id">ID do Hotel:</label>
+            <input class="input" type="number" name="hotel_id" id="hotel_id" placeholder="Ex: 1" min="1" required>
 
-            <label class="label" for="senha">Senha:</label>
-            <input class="input" type="password" name="senha" id="senha" placeholder="Digite sua senha" required>
+            <label class="label" for="numero">Número do Quarto:</label>
+            <input class="input" type="text" name="numero" id="numero" placeholder="Ex: 101 ou 202-A" required>
 
-            <button class="btn-enviar" type="submit">ENTRAR</button>
+            <label class="label" for="tipo">Tipo de Quarto:</label>
+            <input class="input" type="text" name="tipo" id="tipo" placeholder="Ex: Solteiro, Casal, Suíte Luxo" required>
+
+            <label class="label" for="preco_diaria">Preço da Diária (R$):</label>
+            <input class="input" type="number" name="preco_diaria" id="preco_diaria" placeholder="Ex: 250.00" step="0.01" min="0" required>
+
+            <button class="btn-enviar" type="submit">CADASTRAR QUARTO</button>
         </form>
-        <div class="links"><a href="cadastro_cliente.html">Ainda não tenho cadastro</a></div>
+        <div class="links">
+            <a href="listar_quartos.php">Listar quartos</a><br><br>
+            <a href="logout_hotel.php">Sair / Deslogar</a>
+        </div>
+        
     </div>
 </body>
 </html>

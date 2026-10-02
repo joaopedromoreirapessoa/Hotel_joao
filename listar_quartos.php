@@ -1,38 +1,33 @@
 <?php
 
-require_once 'conexao.php';
+require_once "conexao.php";
 
-$sql = "SELECT * FROM quartos";
+$sql = "SELECT quartos.*, hoteis.nome AS nome_hotel
+        FROM quartos
+        JOIN hoteis ON quartos.hotel_id = hoteis.id
+        ORDER BY quartos.id";
 
 $resultado = mysqli_query($conexao, $sql);
 
-if (!$resultado) {
-
-    echo "Erro ao consultar: " . mysqli_error($conexao);
-
-    exit;
-}
-
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quartos</title>
-
+    <title>Quartos Cadastrados - Hotel Monopolio</title>
+    <link rel="stylesheet" href="css/estilo.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f4f8;
-            margin: 0;
-            padding: 20px;
-            text-align: center;
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 25px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 210, 255, 0.15);
         }
-
-        h1 {
+        .titulo_principal {
             color: #0f172a;
             background-color: white;
             border: 3px solid #00d2ff;
@@ -42,158 +37,47 @@ if (!$resultado) {
             padding: 10px;
             text-align: center;
         }
-
-        .meio {
-            width: 900px;
-            max-width: 90%;
-            margin: 40px auto;
-            padding: 25px;
-            background-color: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 15px;
+        .acoes {
+            margin-top: 25px;
             text-align: center;
-            box-shadow: 0 8px 30px rgba(0, 210, 255, 0.15);
-            box-sizing: border-box;
-        }
-
-        .titulo_secundario {
-            color: #1e293b;
-            margin-bottom: 30px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            background-color: white;
-            overflow: hidden;
-        }
-
-        th {
-            padding: 12px;
-            background-color: #0f172a;
-            color: #00d2ff;
-            border: 1px solid #00d2ff;
-        }
-
-        td {
-            padding: 12px;
-            border: 1px solid #cbd5e1;
-            color: #475569;
-            background-color: #f8fafc;
-        }
-
-        tr:hover td {
-            background-color: #e0f7ff;
-        }
-
-        .btn-voltar {
-            display: inline-block;
-            padding: 12px 25px;
-            margin-top: 25px;
-            border: none;
-            border-radius: 25px;
-            background-color: #0f172a;
-            color: #00d2ff;
-            font-weight: bold;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .btn-voltar:hover {
-            background-color: #00d2ff;
-            color: #0f172a;
-        }
-
-        .link-cadastro {
-            display: block;
-            margin-top: 25px;
-            color: #0f172a;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        .link-cadastro:hover {
-            color: #00a8cc;
         }
     </style>
 </head>
-
 <body>
+    <h1 class="titulo_principal">HOTEL MONOPOLIO</h1>
 
-    <h1>QUARTOS 🏨</h1>
-
-    <div class="meio">
-
-        <h2 class="titulo_secundario">DADOS DOS QUARTOS</h2>
+    <div class="container">
+        <h2>Quartos Cadastrados</h2>
 
         <table>
-
-            <tr>
-
-                <th>
-                    ID HOTEL
-                </th>
-
-                <th>
-                    NÚMERO DO QUARTO
-                </th>
-
-                <th>
-                    TIPO DO QUARTO
-                </th>
-
-                <th>
-                    PREÇO DA DIÁRIA
-                </th>
-
-            </tr>
-
-            <?php
-
-            while ($quarto = mysqli_fetch_assoc($resultado)) {
-
-                echo "<tr>";
-
-                echo "<td>" 
-                    . $quarto['hotel_id'] . 
-                    "</td>";
-
-                echo "<td>" 
-                    . $quarto['numero'] . 
-                    "</td>";
-
-                echo "<td>" 
-                    . $quarto['tipo'] . 
-                    "</td>";
-
-                echo "<td>" 
-                    . "R$ " . $quarto['preco_diaria'] . 
-                    "</td>";
-
-                echo "</tr>";
-
-            }
-
-            ?>
-
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Hotel</th>
+                    <th>Número</th>
+                    <th>Tipo</th>
+                    <th>Preço da Diária</th>
+                    <th>Disponível</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php while ($quarto = mysqli_fetch_assoc($resultado)) { ?>
+                    <tr>
+                        <td><?= $quarto["id"] ?></td>
+                        <td><?= htmlspecialchars($quarto["nome_hotel"]) ?></td>
+                        <td><?= htmlspecialchars($quarto["numero"]) ?></td>
+                        <td><?= htmlspecialchars($quarto["tipo"]) ?></td>
+                        <td>R$ <?= number_format($quarto["preco_diaria"], 2, ",", ".") ?></td>
+                        <td><?= $quarto["disponivel"] ? "Sim" : "Não" ?></td>
+                    </tr>
+                <?php } ?>
+            </tbody>
         </table>
 
-        <br>
-
-        <a href='logout_hotel.php' class="btn-voltar">
-            VOLTAR
-        </a>
-
-        <br>
-        <br>
-
-        <a href="cadastrar_quarto.html" class="link-cadastro">
-            Clique aqui para ir para a tela de cadastro
-        </a>
-
+        <div class="acoes">
+            <a href="cadastrar_quarto.html">Cadastrar novo quarto</a><br><br>
+            <a href="logout_hotel.php">Voltar / Sair</a>
+        </div>
     </div>
-
 </body>
-
 </html>

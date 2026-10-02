@@ -3,19 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Clientes!</title>
-    <link rel="stylesheet" href="style.css">
-
+    <title>Cadastro de Cliente - Hotel Monopolio</title>
+    <link rel="stylesheet" href="css/estilo.css">
     <style>
+
         body {
             font-family: Arial, sans-serif;
-      
-            background-color: #f0f4f8; 
+            background-color: #f0f4f8;
             margin: 0;
         }
 
         .titulo_principal {
-        
             color: #0f172a;
             background-color: white;
             border: 3px solid #00d2ff;
@@ -27,7 +25,6 @@
         }
 
         .meio {
-          
             width: 450px;
             margin: 40px auto;
             padding: 25px;
@@ -85,39 +82,35 @@
             background-color: #00d2ff;
             color: #0f172a;
         }
+
+        .links {
+            margin-top: 20px;
+            text-align: center;
+        }
+
     </style>
 </head>
 <body>
-
-   
-    <h1 class="titulo_principal">RESERVAS DO HOTEL</h1>
-
+    <h1 class="titulo_principal" style="color: #00a8cc; text-align: center;">HOTEL MONOPOLIO</h1>
 
     <div class="meio">
-
-        <h2 class="titulo_secundario">Cadastro de Clientes</h2>
-
-        
-        <form class="form" action="login.html" method="post">
-            
+        <h2 class="titulo_secundario">Cadastro de Cliente</h2>
+        <form class="form" action="salvar_cliente.php" method="POST">
             <label class="label" for="nome">Nome Completo:</label>
             <input class="input" type="text" name="nome" id="nome" placeholder="Digite seu nome completo" required>
 
             <label class="label" for="email">E-mail:</label>
-            <input class="input" type="email" name="email" id="email" placeholder="seuemail@email.com" required>
+            <input class="input" type="email" name="email" id="email" placeholder="Digite seu e-mail" required>
 
             <label class="label" for="telefone">Telefone:</label>
-            
-            <input class="input" type="tel" name="telefone" id="telefone" placeholder="(00) 00000-0000" required>
+            <input class="input" type="text" name="telefone" id="telefone" placeholder="Ex: (31) 99999-9999">
 
             <label class="label" for="senha">Senha:</label>
-            <input class="input" type="password" name="senha" id="senha" placeholder="Crie uma senha forte" required>
+            <input class="input" type="password" name="senha" id="senha" placeholder="Digite sua senha" required>
 
-            <button class="btn-enviar" type="submit">ENVIAR CADASTRO</button>
-            
+            <button class="btn-enviar" type="submit">CADASTRAR CLIENTE</button>
         </form>
-
+        <div class="links"><a href="login.html">Já tenho cadastro / Fazer login</a></div>
     </div>
-
 </body>
 </html>

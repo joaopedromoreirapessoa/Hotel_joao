@@ -1,14 +1,16 @@
 <?php
-$host = "localhost";
+
+$servidor = "localhost";
 $usuario = "root";
 $senha = "";
 $banco = "hotel_db";
 
-$conexao = mysqli_connect($host, $usuario, $senha, $banco);
+$conexao = mysqli_connect($servidor, $usuario, $senha, $banco);
 
-if($conexao){
-    echo "Gostou, Conectou ao banco de dados";
-}else{
-    echo "Não Gostou, Não conectou ao banco de dados";
+if (!$conexao) {
+    die("Erro na conexão com o banco de dados: " . mysqli_connect_error());
 }
+
+mysqli_set_charset($conexao, "utf8mb4");
+
 ?>

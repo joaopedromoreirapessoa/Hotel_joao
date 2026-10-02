@@ -1,40 +1,110 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login do Hotel - Hotel Monopolio</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <style>
 
-     <link rel="stylesheet" href="estilo.css/styleee.css">
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+        }
+
+        .titulo_principal {
+            color: #0f172a;
+            background-color: white;
+            border: 3px solid #00d2ff;
+            border-radius: 50px;
+            width: 350px;
+            margin: 30px auto;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .meio {
+            width: 450px;
+            margin: 40px auto;
+            padding: 25px;
+            background-color: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0, 210, 255, 0.15);
+        }
+
+        .titulo_secundario {
+            color: #1e293b;
+            margin-bottom: 30px;
+        }
+
+        .form {
+            text-align: left;
+        }
+
+        .label {
+            color: #475569;
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+        }
+
+        .input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            background-color: #f8fafc;
+            box-sizing: border-box;
+        }
+
+        .input:focus {
+            border: 2px solid #00d2ff;
+            outline: none;
+        }
+
+        .btn-enviar {
+            width: 100%;
+            padding: 12px;
+            margin-top: 30px;
+            border: none;
+            border-radius: 25px;
+            background-color: #0f172a;
+            color: #00d2ff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn-enviar:hover {
+            background-color: #00d2ff;
+            color: #0f172a;
+        }
+
+        .links {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+    </style>
 </head>
+<body>
+    <h1 class="titulo_principal" style="color: #00a8cc; text-align: center;">HOTEL MONOPOLIO</h1>
 
-<body style="text-align: center;">
-    <h1>VagaViva</h1>
-    <h2>Acesso do Hotel/parceiro</h2>
+    <div class="meio">
+        <h2 class="titulo_secundario">Acesso do Hotel / Parceiro</h2>
+        <form class="form" action="autenticar_hotel.php" method="POST">
+            <label class="label" for="email">E-mail do Hotel:</label>
+            <input class="input" type="email" name="email" id="email" placeholder="hotel@email.com" required>
 
+            <label class="label" for="senha">Senha:</label>
+            <input class="input" type="password" name="senha" id="senha" placeholder="Digite a senha" required>
 
-    <form action="autenticar_hotel.php" method="post">
-
-
-        <h5 style="color: #312e81; margin: 10px 0; text-align: left; padding-left: 5%;text-align: center; color: yellow;">
-            <label for="email">DIGITE SEU E-MAIL:</label><br>
-            <input type="email" name="email" id="email" placeholder="Seu email" required>
-        </h5>
-
-        <h5 style="color: #312e81; margin: 10px 0; text-align: left; padding-left: 5%;text-align: center; color: yellow;">
-            <label for="senha">DIGITE SUA SENHA:</label><br>
-            <input type="password" name="senha" id="senha" placeholder="Sua senha" required>
-        </h5>
-        <br>
-        <button type="submit" style="text-align: center;">Acessar Painel do Hotel</button>
-        <br>
-        <br>
-       
-        <a href="cadastro_hotel.html" style="color: white;">Clique aqui para ir para a tela de cadastro</a>
-       
-    </form>
+            <button class="btn-enviar" type="submit">ACESSAR PAINEL DO HOTEL</button>
+        </form>
+        <div class="links"><a href="cadastro_hotel.html">Novo parceiro? Cadastrar hotel</a></div>
+    </div>
 </body>
-
 </html>
-
